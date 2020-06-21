@@ -4,6 +4,7 @@ import com.xsh.cloud.entities.CommonResult;
 import com.xsh.cloud.entities.Payment;
 import com.xsh.cloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -26,7 +27,7 @@ public class PaymentController
     @Value("${server.port}")
     private String serverPort;
 
-    @Resource
+    @Autowired
     private DiscoveryClient discoveryClient;
 
     @PostMapping(value = "/payment/create")
@@ -70,4 +71,11 @@ public class PaymentController
         }
         return this.discoveryClient;
     }
+
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLb() {
+        return serverPort;
+    }
+
+
 }

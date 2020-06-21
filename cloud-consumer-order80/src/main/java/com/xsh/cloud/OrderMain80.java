@@ -1,6 +1,6 @@
 package com.xsh.cloud;
 
-import com.xhs.myrule.MySelfRule;
+import com.xsh.myrule.MySelfRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
